@@ -9,16 +9,16 @@ use PHPUnit\Framework\TestCase;
 
 class ParkingTest extends TestCase
 {
-    public function testParkingCreation()
-    {
-        $parking = ParkingFactory::create(120, 200);
-
-        $this->assertInstanceOf(Parking::class, $parking);
-    }
-
     public function testGetEmptySpaces()
     {
-        $parking = ParkingFactory::create(120, 200);
+        $width = 120;
+        $length = 200;
+        $parking = $this->getParking($width, $length);
         $carArea = Constants::CAR_AREA;
+    }
+
+    private function getParking($width, $length)
+    {
+        return ParkingFactory::create($width, $length);
     }
 }
