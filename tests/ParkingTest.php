@@ -34,6 +34,20 @@ class ParkingTest extends TestCase
         $this->assertEquals(1, $parking->getCarCount());
     }
 
+    public function testRemoveCar()
+    {
+        $parking = $this->getParking($this->width, $this->length);
+        $car = CarFactory::create('test');
+
+        $this->assertEquals(0, $parking->getCarCount());
+
+        $parking->addCar($car);
+
+        $this->assertEquals(1, $parking->getCarCount());
+
+        $parking->removeCar($car);
+    }
+
     private function getParking($width, $length)
     {
         return ParkingFactory::create($width, $length);
