@@ -10,22 +10,22 @@ use PHPUnit\Framework\TestCase;
 
 class ParkingTest extends TestCase
 {
+    private $width = 120;
+
+    private $length = 200;
+
     public function testGetEmptySpaces()
     {
-        $width = 120;
-        $length = 200;
-        $parking = $this->getParking($width, $length);
+        $parking = $this->getParking($this->width, $this->length);
         $carArea = Constants::CAR_AREA;
-        $emptySpaces = floor($width * $length / $carArea);
+        $emptySpaces = floor($this->width * $this->length / $carArea);
 
         $this->assertEquals($emptySpaces, $parking->getEmptySpaces());
     }
 
     public function testAddCar()
     {
-        $width = 120;
-        $length = 200;
-        $parking = $this->getParking($width, $length);
+        $parking = $this->getParking($this->width, $this->length);
         $car = CarFactory::create('test');
     }
 
