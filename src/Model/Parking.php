@@ -27,4 +27,9 @@ class Parking
     {
         $this->cars[] = $car;
     }
+
+    public function getCarCount()
+    {
+        return count($this->cars);
+    }
 }
