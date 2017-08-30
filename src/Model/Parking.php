@@ -31,7 +31,7 @@ class Parking
     public function addCar(Car $car)
     {
         if ($this->getEmptySpaces()) {
-            $this->cars[] = $car;
+            $this->cars[$car->getPlate()] = $car;
         }
     }
 
@@ -42,10 +42,8 @@ class Parking
 
     public function removeCar(Car $car)
     {
-        foreach ($this->cars as $key => $parkedCar) {
-            if ($car === $parkedCar) {
-                unset($this->cars[$key]);
-            }
+        if (isset($this->cars[$car->getPlate()])) {
+            unset($this->cars[$car->getPlate()]);
         }
     }
 }
