@@ -32,4 +32,13 @@ class Parking
     {
         return count($this->cars);
     }
+
+    public function removeCar(Car $car)
+    {
+        foreach ($this->cars as $key => $parkedCar) {
+            if ($car === $parkedCar) {
+                unset($this->cars[$key]);
+            }
+        }
+    }
 }
