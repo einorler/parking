@@ -4,7 +4,6 @@ namespace Nfq\Tests;
 
 use Nfq\Factory\ParkingFactory;
 use Nfq\Factory\CarFactory;
-use Nfq\Model\Parking;
 use Nfq\Constants;
 use PHPUnit\Framework\TestCase;
 
@@ -27,6 +26,9 @@ class ParkingTest extends TestCase
     {
         $parking = $this->getParking($this->width, $this->length);
         $car = CarFactory::create('test');
+
+        $this->assertEquals(0, $parking->getCarCount());
+
         $parking->addCar($car);
 
         $this->assertEquals(1, $parking->getCarCount());
