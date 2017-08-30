@@ -15,6 +15,9 @@ class ParkingTest extends TestCase
         $length = 200;
         $parking = $this->getParking($width, $length);
         $carArea = Constants::CAR_AREA;
+        $emptySpaces = floor($width * $length / $carArea);
+
+        $this->assertEquals($emptySpaces, $parking->getEmptySpaces());
     }
 
     private function getParking($width, $length)
