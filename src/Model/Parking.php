@@ -18,9 +18,14 @@ class Parking
         $this->length = $length;
     }
 
-    public function getEmptySpaces()
+    public function getEmptySpaces(): int
     {
-        return floor($this->width * $this->length / Constants::CAR_AREA) - $this->getCarCount();
+        return $this->getAvailableSpaces() - $this->getCarCount();
+    }
+
+    public function getAvailableSpaces(): int
+    {
+        return floor($this->width * $this->length / Constants::CAR_AREA);
     }
 
     public function addCar(Car $car)
@@ -30,7 +35,7 @@ class Parking
         }
     }
 
-    public function getCarCount()
+    public function getCarCount(): int
     {
         return count($this->cars);
     }

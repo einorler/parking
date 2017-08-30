@@ -46,10 +46,8 @@ class ParkingTest extends TestCase
 
     public function testOverflowParking()
     {
-        $width = 2;
-        $length = 5;
-        $availableSpaces = floor(2 * 5 / Constants::CAR_AREA);
         $parking = $this->getParking(2, 5);
+        $availableSpaces = $parking->getAvailableSpaces();
         $parking->addCar(CarFactory::create('foo'));
         $parking->addCar(CarFactory::create('bar'));
         $parking->addCar(CarFactory::create('zip'));
