@@ -6,7 +6,13 @@ use Nfq\Model\Parking;
 
 class ParkingFactory
 {
-    public static function create($width, $length)
+    /**
+     * @param int $width
+     * @param int $length
+     *
+     * @return Parking
+     */
+    public static function create(int $width, int $length): Parking
     {
         return new Parking($width, $length);
     }
