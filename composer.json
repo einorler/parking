@@ -1,0 +1,16 @@
+{
+  "name": "parking-project",
+  "require": {
+    "php": "^7.1"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~4.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "Nfq\\": "src/",
+      "Nfq\\Tests\\": "tests/"
+    },
+    "exclude-from-classmap": ["/Tests/"]
+  }
+}
