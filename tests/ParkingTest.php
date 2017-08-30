@@ -28,6 +28,8 @@ class ParkingTest extends TestCase
         $parking = $this->getParking($this->width, $this->length);
         $car = CarFactory::create('test');
         $parking->addCar($car);
+
+        $this->assertEquals(1, $parking->getCarCount());
     }
 
     private function getParking($width, $length)
